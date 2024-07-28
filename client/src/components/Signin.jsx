@@ -99,7 +99,7 @@ const Signin = () => {
     });
     if (!nameError && !passwordError && !dobError) {
       try {
-        const response = await axios.post('http://localhost:5050/api/users/signup', formData);
+        const response = await axios.post('https://server-1uzx.onrender.com/api/users/signup', formData);
         setLoginMessage(response.data.message);
         if(response.data.message==="Already exists")
         {
@@ -130,7 +130,7 @@ const Signin = () => {
 
     if (!emailOrPhoneError && !passwordError) {
       try {
-        const response = await axios.post('http://localhost:5050/api/users/signin', formData)
+        const response = await axios.post('https://server-1uzx.onrender.com/api/users/signin', formData)
         if(!response.data.message){
           setLoginMessage('');
           navigate('/Home')

@@ -16,7 +16,7 @@ const Home = () => {
     const createLinkToken = async () => {
       try {
         console.log("Creating link token...");
-        const response = await axios.post("http://localhost:5050/api/create_link_token");
+        const response = await axios.post("https://server-1uzx.onrender.com/api/create_link_token");
         setLinkToken(response.data.link_token);
         console.log("Link token created:", response.data.link_token);
       } catch (error) {
@@ -29,7 +29,7 @@ const Home = () => {
   const onSuccess = async (public_token) => {
     try {
       console.log("Exchanging public token for access token...");
-      const response = await axios.post("http://localhost:5050/api/exchange_public_token", {
+      const response = await axios.post("https://server-1uzx.onrender.com/api/exchange_public_token", {
         public_token,
       });
       const accessToken = response.data.access_token;
@@ -44,7 +44,7 @@ const Home = () => {
     try {
       setIsLoading(true);
       console.log("Fetching transactions...");
-      const transactionsResponse = await axios.get("http://localhost:5050/api/transactions", {
+      const transactionsResponse = await axios.get("https://server-1uzx.onrender.com/api/transactions", {
         params: { access_token: accessToken },
       });
       setTransactions(transactionsResponse.data.transactions);
